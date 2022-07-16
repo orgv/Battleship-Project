@@ -1,0 +1,743 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GameScreenActivity">
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gifImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:scaleType="fitXY"
+        android:src="@drawable/flowing_water_bg" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.gridlayout.widget.GridLayout
+            android:id="@+id/gridLayout"
+            android:layout_width="390dp"
+            android:layout_height="390dp"
+            android:layout_marginTop="16dp"
+            app:columnCount="10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:rowCount="10">
+
+            <ImageView
+                android:id="@+id/button_1_1"
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+                android:background="@drawable/button_shape"
+
+
+                />
+
+            <ImageView
+
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:background="@drawable/button_shape" />
+
+        </androidx.gridlayout.widget.GridLayout>
+
+        <ImageView
+            android:id="@+id/large_ship"
+            android:layout_width="39dp"
+            android:layout_height="195dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gridLayout"
+            app:srcCompat="@drawable/large_ship" />
+
+        <ImageView
+            android:id="@+id/big_ship"
+            android:layout_width="39dp"
+            android:layout_height="156dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/large_ship"
+            app:layout_constraintTop_toBottomOf="@+id/gridLayout"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/big_ship" />
+
+        <ImageView
+            android:id="@+id/medium_ship_1"
+            android:layout_width="39dp"
+            android:layout_height="117dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/big_ship"
+            app:srcCompat="@drawable/medium_ship" />
+
+        <ImageView
+            android:id="@+id/medium_ship_2"
+            android:layout_width="39dp"
+            android:layout_height="117dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/medium_ship_1"
+            app:srcCompat="@drawable/medium_ship" />
+
+        <ImageView
+            android:id="@+id/small_ship"
+            android:layout_width="39dp"
+            android:layout_height="78dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/medium_ship_2"
+            app:srcCompat="@drawable/small_ship" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:backgroundTint="#00FDF9F5"
+            android:fontFamily="casual"
+            android:onClick="onClickContinueButton"
+            android:text="continue"
+            android:textSize="28dp"
+            app:cornerRadius="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintStart_toEndOf="@+id/small_ship"
+            app:strokeColor="@color/black"
+
+            app:strokeWidth="3dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</FrameLayout>

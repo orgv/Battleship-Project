@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">BattleShip</string>
+    <string name="battleship_str">BattleShip</string>
+    <string name="start_game_str">Start Game</string>
+</resources>
