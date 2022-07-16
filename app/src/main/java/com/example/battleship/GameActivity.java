@@ -24,7 +24,6 @@ public class GameActivity extends AppCompatActivity {
     private String the_winner;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,19 +43,17 @@ public class GameActivity extends AppCompatActivity {
 //        opponentBoardView.setBoard(opponentBoard);
 //        opponentBoardView.setReadyToDraw(true);
 //        disableOpponentBoard();
-        //mGame = new Game(new Player());
+        mGame = new Game();
 
-        computerGrid = findViewById(R.id.enemy_grid);
         playerGrid = findViewById(R.id.player_grid);
+        computerGrid = findViewById(R.id.enemy_grid);
 
-        computerGrid.setBoard();
-
-
+        playerGrid.setBoard(mGame.getPlayerBoard());
+        computerGrid.setBoard(mGame.getComputerBoard());
 
 
         //computerGrid.setAdapter(computerAdapter);
         //playerGrid.setAdapter(playerAdapter);
-
 
 
     }

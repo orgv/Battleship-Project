@@ -73,14 +73,6 @@ public class BoardView extends View implements Serializable {
         super(context, attrs, defStyleAttr);
     }
 
-    /**
-     * Set the board to to be displayed by this view.
-     */
-//    void setBoard(Board board) {
-//        /* Board to be displayed by this view. */
-//        this.boardSize = board.getBoardSize();
-//    }
-
 
     /**
      * Set the board to to be displayed by this view.
@@ -89,6 +81,11 @@ public class BoardView extends View implements Serializable {
         this.board = board;
         this.boardSize = board.size();
 
+    }
+
+
+    public Board getBoard() {
+        return board;
     }
 
     /**

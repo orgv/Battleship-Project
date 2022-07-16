@@ -9,7 +9,7 @@ import java.util.Random;
 
 //
 public class Board {
-    private final static int BOARD_SIZE = 10;
+    public final static int BOARD_SIZE = 10;
     public final static String HORIZONTAL = "horizontal";//רוחב
     public final static String VERTICAL = "vertical";//אורך
     private int numberOfTilesLeft;

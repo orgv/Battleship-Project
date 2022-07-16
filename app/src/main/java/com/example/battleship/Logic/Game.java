@@ -18,9 +18,9 @@ public class Game {
     private Board computerBoard;
 
 
-    public Game(Player player) {
-        playerBoard = new Board(player.getPlayerName());
-        computerBoard = new Board("COMPUTER");
+    public Game() {
+        playerBoard = new Board("My Board");
+        computerBoard = new Board("Opponent's Board");
         setPlayerTurn(true);
         computerCurrentPoint = getRandomPoint();
 
@@ -88,4 +88,19 @@ public class Game {
         return board.getNumberOfShipsLeft() == 0;
     }
 
+    public Board getPlayerBoard() {
+        return playerBoard;
+    }
+
+    public Board getComputerBoard() {
+        return computerBoard;
+    }
+
+    public void setPlayerBoard(Board playerBoard) {
+        this.playerBoard = playerBoard;
+    }
+
+    public void setComputerBoard(Board computerBoard) {
+        this.computerBoard = computerBoard;
+    }
 }
