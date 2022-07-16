@@ -29,20 +29,6 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-//        Board myBoard = new Board("Human Player");
-//
-//        myBoardView = findViewById(R.id.player_grid);
-//        opponentBoardView = findViewById(R.id.enemy_grid);
-//
-//        myBoardView.setBoard(myBoard);
-//        myBoardView.setReadyToDraw(true);
-//        Board opponentBoard = new Board("Computer Player");
-//        for (Ship ship : opponentBoard.getFleet()) {
-//            ship.setVisible(false);
-//        }
-//        opponentBoardView.setBoard(opponentBoard);
-//        opponentBoardView.setReadyToDraw(true);
-//        disableOpponentBoard();
         mGame = new Game();
 
         playerGrid = findViewById(R.id.player_grid);
@@ -50,10 +36,6 @@ public class GameActivity extends AppCompatActivity {
 
         playerGrid.setBoard(mGame.getPlayerBoard());
         computerGrid.setBoard(mGame.getComputerBoard());
-
-
-        //computerGrid.setAdapter(computerAdapter);
-        //playerGrid.setAdapter(playerAdapter);
 
 
     }

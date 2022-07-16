@@ -19,10 +19,11 @@ public class Game {
 
 
     public Game() {
+        // Context.getString(R.string.myStringResource);
         playerBoard = new Board("My Board");
         computerBoard = new Board("Opponent's Board");
         setPlayerTurn(true);
-        computerCurrentPoint = getRandomPoint();
+        //computerCurrentPoint = getRandomPoint();
 
     }
 

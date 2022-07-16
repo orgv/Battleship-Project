@@ -31,7 +31,7 @@ public class BoardView extends View implements Serializable {
     private Board board;
     private final List<BoardTouchListener> listeners = new ArrayList<>();
     private boolean displayShips = false;
-    private int boardSize = 10;
+    //private int boardSize = 10;
     boolean readyToDraw = false;
 
     private final int redColor = Color.rgb(255, 69, 0);
@@ -79,8 +79,6 @@ public class BoardView extends View implements Serializable {
      */
     public void setBoard(Board board) {
         this.board = board;
-        this.boardSize = board.size();
-
     }
 
 
@@ -127,11 +125,11 @@ public class BoardView extends View implements Serializable {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         drawGrid(canvas);
-        drawShotPlaces(canvas);
-        if (displayShips) {
-            drawShips(canvas);
-        }
-        drawShipHitPlaces(canvas);
+//        drawShotPlaces(canvas);
+//        if (displayShips) {
+//            drawShips(canvas);
+//        }
+//        drawShipHitPlaces(canvas);
 
     }
 
@@ -158,8 +156,8 @@ public class BoardView extends View implements Serializable {
         if (board == null) {
             return;
         }
-        for (int x = 0; x < boardSize; x++) {
-            for (int y = 0; y < boardSize; y++) {
+        for (int x = 0; x < Board.BOARD_SIZE; x++) {
+            for (int y = 0; y < Board.BOARD_SIZE; y++) {
                 if (board.placeAt(x, y).isHit()) {
                     drawSquare(canvas, Color.RED, x, y);
                 }
@@ -172,8 +170,8 @@ public class BoardView extends View implements Serializable {
      */
     private void drawShips(Canvas canvas) {
 
-        for (int x = 0; x < boardSize; x++) {
-            for (int y = 0; y < boardSize; y++) {
+        for (int x = 0; x < Board.BOARD_SIZE; x++) {
+            for (int y = 0; y < Board.BOARD_SIZE; y++) {
                 if (board.placeAt(x, y).hasShip()) {
                     drawSquare(canvas, Color.argb(215, 255, 255, 255), x, y);
                 }
@@ -222,14 +220,14 @@ public class BoardView extends View implements Serializable {
      * Calculate the gap between two horizontal/vertical lines.
      */
     private float lineGap() {
-        return Math.min(getMeasuredWidth(), getMeasuredHeight()) / (float) boardSize;
+        return Math.min(getMeasuredWidth(), getMeasuredHeight()) / (float) Board.BOARD_SIZE;
     }
 
     /**
      * Calculate the number of horizontal/vertical lines.
      */
     private int numOfLines() {
-        return boardSize + 1;
+        return Board.BOARD_SIZE + 1;
     }
 
     /**

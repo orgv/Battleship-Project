@@ -672,8 +672,9 @@
             android:layout_marginTop="4dp"
             android:clickable="true"
             android:focusable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/big_ship"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/gridLayout"
             app:srcCompat="@drawable/large_ship" />
 
         <ImageView
