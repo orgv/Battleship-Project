@@ -18,11 +18,10 @@ public class Board {
     private int numberOfShots;
     private final Random random = new Random();
     //int[][] grid = new int[BOARD_SIZE][BOARD_SIZE]; // matrix-representation reference, raw one. Logic will be based on it.
-    ArrayList<Ship> fleet = new ArrayList<Ship>(5);
+    ArrayList<Ship> fleet = new ArrayList<>(5);
     private final Tile[][] mTiles;
 
     private Place[][] board = null;
-    private int size;
 
 
     GridLayout gridLayout; // Graphical reference to the grid. Provides visualization.
@@ -47,7 +46,9 @@ public class Board {
             }
         }
     }
-
+    public boolean isFleetEmpty(){
+       return fleet.isEmpty();
+    }
     public int getNumberOfTilesLeft() {
         return numberOfTilesLeft;
     }
@@ -63,22 +64,9 @@ public class Board {
     public void setNumberOfShipsLeft(int numberOfShipsLeft) {
         this.numberOfShipsLeft = numberOfShipsLeft;
     }
-    /**Returns the place in the board with coordinates (x, y)
-     * @param x x coordinate 0-based index
-     * @param y y coordinate 0-based index
-     * @return place on the board*/
-    public Place placeAt(int x, int y){
-        if(board == null || isOutOfBounds(x,y) || board[y][x] == null){
-            return null;
-        }
 
-        return board[y][x];
-    }
-
-
-    /**Returns true if the (x,y) coordinates given are outside the board*/
-    boolean isOutOfBounds(int x, int y){
-        return x >= size() || y >= size() || x < 0 || y < 0;
+    boolean isOutOfBounds(int x, int y) {
+        return x >= BOARD_SIZE || y >= BOARD_SIZE || x < 0 || y < 0;
     }
 
     public void place(int row, int col, Ship ship) {
@@ -89,37 +77,16 @@ public class Board {
             for (int i = 0; i < size; i++) {
                 mTiles[row][col + i].setShip(ship);
                 shipPoints[i] = new Point(row, col + i);
-//                if (row < BOARD_SIZE - 1)
-//                    mTiles[row + 1][col + i].setTileStatus(Tile.Status.NONE_X);
-//                if (row > 0)
-//                    mTiles[row - 1][col + i].setTileStatus(Tile.Status.NONE_X);
             }
-
-//            if (col > 0)
-//                mTiles[row][col - 1].setTileStatus(Tile.Status.NONE_X);
-//            if (col + size - 1 < BOARD_SIZE - 1)
-//                mTiles[row][col + size].setTileStatus(Tile.Status.NONE_X);
         }
         //vertical
         else {
             for (int i = 0; i < size; i++) {
                 mTiles[row + i][col].setShip(ship);
                 shipPoints[i] = new Point(row + i, col);
-
-//                if (col < BOARD_SIZE - 1)
-//                    mTiles[row + i][col + 1].setTileStatus(Tile.Status.NONE_X);
-//
-//                if (col > 0)
-//                    mTiles[row + i][col - 1].setTileStatus(Tile.Status.NONE_X);
-
             }
-//            if (row > 0)
-//                mTiles[row - 1][col].setTileStatus(Tile.Status.NONE_X);
-//            if (row + size - 1 < BOARD_SIZE - 1)
-//                mTiles[row + size][col].setTileStatus(Tile.Status.NONE_X);
-
+            ship.setPointsOnBoard(shipPoints);
         }
-        ship.setPointsOnBoard(shipPoints);
     }
 
     public boolean checkValidLocation(int row, int col, String direction, int shipSize) {
@@ -210,23 +177,22 @@ public class Board {
     }
 
 
-    /** Return the size of this board. */
-    public int size() {
-        return size;
-    }
-
-    /**Returns all of the board's places in a LinkedList*/
-    private List<Place> getPlaces(){
+    /**
+     * Returns all of the board's places in a LinkedList
+     */
+    private List<Place> getPlaces() {
         List<Place> boardPlaces = new LinkedList<Place>();
-        for(int i = 0; i < size(); i++){
-            for(int j = 0; j < size(); j++){
+        for (int i = 0; i < BOARD_SIZE; i++) {
+            for (int j = 0; j < BOARD_SIZE; j++) {
                 boardPlaces.add(board[i][j]);
             }
         }
         return boardPlaces;
     }
 
-    /**Returns all of the places that have a ship and have been hit*/
+    /**
+     * Returns all of the places that have a ship and have been hit
+     */
     public List<Place> getShipHitPlaces() {
 
         List<Place> boardPlaces = getPlaces();
@@ -238,6 +204,14 @@ public class Board {
             }
         }
         return shipHitPlaces;
+    }
+
+    public Place placeAt(int x, int y){
+        if(board == null || isOutOfBounds(x,y) || board[y][x] == null){
+            return null;
+        }
+
+        return board[y][x];
     }
 
 }

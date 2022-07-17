@@ -35,7 +35,7 @@
         android:layout_marginTop="5dp"
         android:fontFamily="sans-serif"
         android:gravity="center"
-        android:text="Computer's Board"
+        android:text="Enemy's Fleet"
         android:textColor="@color/black"
         android:textSize="18dp"
         android:textStyle="bold" />
@@ -64,7 +64,7 @@
         android:layout_marginBottom="3dp"
         android:fontFamily="sans-serif"
         android:gravity="center"
-        android:text="@string/player_name"
+        android:text="My Fleet"
         android:textColor="@color/black"
         android:textSize="18dp"
         android:textStyle="bold"

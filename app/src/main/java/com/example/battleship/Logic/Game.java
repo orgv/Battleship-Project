@@ -11,20 +11,129 @@ import java.util.Random;
 
 public class Game {
     private boolean playerTurn;// true = humanPlayer turn, false = computerPlayer turn
-    private Point computerCurrentPoint;
-    private Point randomPoint;
+    private boolean huntMode=false;
     private Random random = new Random();
     private Board playerBoard;
     private Board computerBoard;
-
+    private Point computerCurrentPoint;
+    private Point randomPoint;
+    private Point calculatedPoint;
+    private int computerDirection;
+    private Point computerLastHitPoint;
 
     public Game() {
         // Context.getString(R.string.myStringResource);
         playerBoard = new Board("My Board");
         computerBoard = new Board("Opponent's Board");
+
         setPlayerTurn(true);
         //computerCurrentPoint = getRandomPoint();
 
+    }
+    public Point getCalculatedPoint(Point computerLastHitPoint) {
+        int lastRow = computerLastHitPoint.getRow();
+        int lastCol = computerLastHitPoint.getCol();
+        int boardSize = getPlayerBoard().getBoardSize();
+
+        while (true) {
+            //right
+            if (computerDirection == 1) {
+                if (lastCol < boardSize - 1) {
+                    if ((getPlayerBoard().getTile(lastRow, lastCol + 1).getTileStatus() == Tile.Status.NONE)
+                            || (getPlayerBoard().getTile(lastRow, lastCol + 1).getTileStatus() == Tile.Status.SHIP)) {
+                        calculatedPoint.setRow(lastRow);
+                        calculatedPoint.setCol(lastCol + 1);
+                        return calculatedPoint;
+                    }
+                }
+                nextDirection();
+            }
+            //up
+            if (computerDirection == 2) {
+
+                if (lastRow > 0) {
+                    if ((getPlayerBoard().getTile(lastRow - 1, lastCol).getTileStatus() == Tile.Status.NONE)
+                            || (getPlayerBoard().getTile(lastRow - 1, lastCol).getTileStatus() == Tile.Status.SHIP)) {
+                        calculatedPoint.setRow(lastRow - 1);
+                        calculatedPoint.setCol(lastCol);
+                        return calculatedPoint;
+                    }
+                }
+                nextDirection();
+
+            }
+            //left
+            if (computerDirection == 3) {
+
+                if (lastCol > 0) {
+                    if ((getPlayerBoard().getTile(lastRow, lastCol - 1).getTileStatus() == Tile.Status.NONE)
+                            || (getPlayerBoard().getTile(lastRow, lastCol - 1).getTileStatus() == Tile.Status.SHIP)) {
+                        calculatedPoint.setRow(lastRow);
+                        calculatedPoint.setCol(lastCol - 1);
+                        return calculatedPoint;
+                    }
+                }
+                nextDirection();
+            }
+
+            //down
+            if (computerDirection == 4) {
+
+                if (lastRow < boardSize - 1) {
+                    if ((getPlayerBoard().getTile(lastRow + 1, lastCol).getTileStatus() == Tile.Status.NONE)
+                            || (getPlayerBoard().getTile(lastRow + 1, lastCol).getTileStatus() == Tile.Status.SHIP)) {
+                        calculatedPoint.setRow(lastRow + 1);
+                        calculatedPoint.setCol(lastCol);
+                        return calculatedPoint;
+                    }
+                }
+                nextDirection();
+            }
+        }
+    }
+    public void nextDirection() {
+        if (computerDirection >= 4)
+            computerDirection = 1;
+        else
+            computerDirection++;
+    }
+    public int computerPlay() {
+        int theState;
+        theState = playTile(computerCurrentPoint, playerBoard);
+        //hit a ship - now trying to sink it
+        if (huntMode) {
+            //case HIT
+            if (theState == 1) {
+                computerCurrentPoint = getCalculatedPoint(computerCurrentPoint);
+            }
+
+            //case MISS
+            else if (theState == 0) {
+                nextDirection();
+                computerCurrentPoint = getCalculatedPoint(computerLastHitPoint);
+            }
+
+            //case SUNK
+            else {
+                computerCurrentPoint = getRandomPoint();
+                huntMode = false;
+            }
+        }
+
+        //the ship is sunk- now searching for new random point
+        else {
+            //case HIT
+            if (theState == 1) {
+                computerLastHitPoint = computerCurrentPoint;
+                huntMode = true;
+                computerCurrentPoint = getCalculatedPoint(computerLastHitPoint);
+            }
+            //case MISS or SUNK
+            else {
+                computerCurrentPoint = getRandomPoint();
+            }
+        }
+        return theState;
     }
 
     public Point getRandomPoint() {

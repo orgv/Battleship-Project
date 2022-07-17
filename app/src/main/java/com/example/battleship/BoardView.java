@@ -243,7 +243,7 @@ public class BoardView extends View implements Serializable {
      * don't correspond to any place in the board.
      * The returned coordinates are encoded as <code>x*100 + y</code>.
      */
-    private int locatePlace(float x, float y) {
+    public int locatePlace(float x, float y) {
         if (x <= maxCoord() && y <= maxCoord()) {
             final float placeSize = lineGap();
             int ix = (int) (x / placeSize);

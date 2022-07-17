@@ -6,6 +6,7 @@ import android.graphics.drawable.BitmapDrawable;
 import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class Ship {
@@ -16,6 +17,7 @@ public class Ship {
     private Point pointsOnBoard[];
     private Point headPoint;
     private boolean isVisible = true;
+    public boolean shipDirection = true;
 
 
     public enum ShipType {
@@ -35,7 +37,6 @@ public class Ship {
     }
 
 
-
     public Ship(ShipType shipType) {
         this.shipType = shipType;
         this.hitPoints = shipType.e_shipSize;
@@ -48,6 +49,13 @@ public class Ship {
         this.hitPoints--;
         if (this.hitPoints == 0)
             isSunk = true;
+    }
+    public void setShipDirection(boolean newDir) {
+        shipDirection = newDir;
+    }
+
+    public boolean getShipDirection(){
+        return shipDirection;
     }
 
     public int getSize() {
@@ -89,7 +97,6 @@ public class Ship {
     public void setSunk(boolean sunk) {
         isSunk = sunk;
     }
-
 
     public void setVisible(boolean visible) {
         isVisible = visible;
