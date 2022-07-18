@@ -1,7 +1,10 @@
 package com.example.battleship;
 
+import static android.widget.RelativeLayout.CENTER_IN_PARENT;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintSet;
 
 import android.annotation.SuppressLint;
 import android.content.ClipData;
@@ -11,14 +14,18 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewParent;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.GridLayout;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 
 import com.example.battleship.Logic.Board;
@@ -31,7 +38,7 @@ import java.util.List;
 // Place Ships Activity
 public class GameScreenActivity extends AppCompatActivity {
     private GridLayout mainGrid;
-    //RelativeLayout.LayoutParams lParams;
+    ConstraintLayout.LayoutParams lParams;
     private ImageView largeShip, bigShip, mediumShip, mediumShip2, smallShip;
     //private ChoiceTouchListener choiceTouchListener;
     ImageView imageView;
@@ -413,7 +420,7 @@ public class GameScreenActivity extends AppCompatActivity {
                     }
                     return false;
                 case DragEvent.ACTION_DRAG_ENTERED:
-                   // view.setBackgroundColor(Color.YELLOW);
+                    // view.setBackgroundColor(Color.YELLOW);
                     break;
                 case DragEvent.ACTION_DRAG_LOCATION:
                     break;
@@ -421,15 +428,34 @@ public class GameScreenActivity extends AppCompatActivity {
                     //view.setBackgroundColor(Color.BLUE);
                     break;
                 case DragEvent.ACTION_DROP:
+
                     View myView = (View) dragEvent.getLocalState();
                     ViewGroup owner = (ViewGroup) myView.getParent();
                     owner.removeView(myView);
-                    //ConstraintLayout container = (ConstraintLayout) view;
-                    //View ch = container.getChildAt(0);
+
                     BoardView container = (BoardView) view;
 
                     ConstraintLayout parentContainer = (ConstraintLayout) container.getParent();
+
+
+                    view.setBackgroundColor(Color.BLUE);
+
+
+
+                    myView.setX(dragEvent.getX());
+                    myView.setY(dragEvent.getY());
+
+
+//                    ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) view.getLayoutParams();
+//                    params.leftMargin = (int) view.getLeft();
+//                    params.rightMargin = (int) view.getRight();
+                    //mLayout.addView(button, params);
+
+
                     parentContainer.addView(myView);
+
+
+
                     //container.addView(view);
                     myView.setVisibility(View.VISIBLE);
 
