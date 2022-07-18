@@ -2,6 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/view_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".GameScreenActivity">
@@ -19,23 +20,34 @@
         android:layout_height="match_parent">
 
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/hate_this"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+
+
         <com.example.battleship.BoardView
 
-            android:id="@+id/place_ships_board"
-            android:layout_width="375dp"
-            android:layout_height="375dp"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="60dp"
+                android:id="@+id/place_ships_grid"
+                android:layout_width="375dp"
+                android:layout_height="375dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="60dp"
 
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="60dp"
-            android:columnWidth="140dp"
-            android:gravity="center"
-            android:horizontalSpacing="-40dp"
-            android:numColumns="10"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="60dp"
+                android:columnWidth="140dp"
+                android:gravity="center"
+                android:horizontalSpacing="-40dp"
+                android:numColumns="10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         <ImageView
             android:id="@+id/large_ship"
@@ -59,7 +71,7 @@
             android:focusable="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/large_ship"
-            app:layout_constraintTop_toBottomOf="@+id/place_ships_board"
+            app:layout_constraintTop_toBottomOf="@+id/place_ships_grid"
             app:layout_constraintVertical_bias="1.0"
             app:srcCompat="@drawable/big_ship" />
 

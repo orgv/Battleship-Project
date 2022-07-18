@@ -1,7 +1,7 @@
 package com.example.battleship;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.annotation.SuppressLint;
 import android.content.ClipData;
@@ -10,33 +10,23 @@ import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Point;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.DragEvent;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.GridLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 
 import com.example.battleship.Logic.Board;
 import com.example.battleship.Logic.Ship;
+import com.example.battleship.databinding.ActivityPlaceShipsBinding;
 
 import java.util.LinkedList;
 import java.util.List;
-
-import pl.droidsonroids.gif.GifImageView;
 
 // Place Ships Activity
 public class GameScreenActivity extends AppCompatActivity {
@@ -53,21 +43,34 @@ public class GameScreenActivity extends AppCompatActivity {
 
     private Board playerBoard;
 
+
+    private ViewGroup rootLayout;
+
+
+    private View.OnDragListener boardDragListener;
+
     private android.widget.FrameLayout.LayoutParams layoutParams;
+    private ActivityPlaceShipsBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_place_ships);
+
+
+        //rootLayout = (ViewGroup) findViewById(R.id.view_root);
+
+        //largeShip = (ImageView) rootLayout.findViewById(R.id.large_ship);
 
         continueBtn = findViewById(R.id.button);
         //continueBtn.setEnabled(false);
         continueBtn.setEnabled(true);
 
-        //boardView = (BoardView) findViewById(R.id.placeShipsBoardView);
-        //playerBoard = new Board();
-        //boardView.setBoard(playerBoard);
-        //boardView.displayBoardsShips(true);
+        boardView = (BoardView) findViewById(R.id.place_ships_grid);
+        playerBoard = new Board("My Fleet");
+        boardView.setBoard(playerBoard);
+        boardView.displayBoardsShips(true);
 
 
         largeShip = (ImageView) findViewById(R.id.large_ship);
@@ -76,11 +79,26 @@ public class GameScreenActivity extends AppCompatActivity {
         mediumShip2 = (ImageView) findViewById(R.id.medium_ship_2);
         smallShip = (ImageView) findViewById(R.id.small_ship);
 
+
+        largeShip.setOnLongClickListener(new MyOnLongClickListener());
+        bigShip.setOnLongClickListener(new MyOnLongClickListener());
+        mediumShip.setOnLongClickListener(new MyOnLongClickListener());
+        mediumShip2.setOnLongClickListener(new MyOnLongClickListener());
+        smallShip.setOnLongClickListener(new MyOnLongClickListener());
+
+        boardView.setOnDragListener(new MyOnDragListener(1));
+
+
         fleetView.add(new ShipView(largeShip, new Ship(Ship.ShipType.BATTLESHIP)));
         fleetView.add(new ShipView(bigShip, new Ship(Ship.ShipType.CRUISER)));
         fleetView.add(new ShipView(mediumShip, new Ship(Ship.ShipType.CARRIER1)));
         fleetView.add(new ShipView(mediumShip2, new Ship(Ship.ShipType.CARRIER2)));
         fleetView.add(new ShipView(smallShip, new Ship(Ship.ShipType.DESTROYER)));
+
+
+        //largeShip.setOnTouchListener();
+        //setTouchListener(fleetView.get(0));
+        largeShip.setOnTouchListener(new MyTouchListener());
 
 
         for (ShipView shipView : fleetView) {
@@ -90,7 +108,68 @@ public class GameScreenActivity extends AppCompatActivity {
         //setBoardDragListener(boardView, playerBoard);
 
 
+        //boardDragListener = View.OnDragListener(boardView, DragEvent dragEvent)
+
+//        View.OnDragListener boardDragListener = new View.OnDragListener() {
+//            @Override
+//            public boolean onDrag(View v, DragEvent event) {
+//                switch (event.getAction()) {
+//                    case DragEvent.ACTION_DRAG_STARTED:
+//                        break;
+//
+//                    case DragEvent.ACTION_DRAG_ENTERED:
+//                        break;
+//
+//                    case DragEvent.ACTION_DRAG_EXITED:
+//                        break;
+//
+//                    case DragEvent.ACTION_DRAG_LOCATION:
+//                        break;
+//
+//                    case DragEvent.ACTION_DRAG_ENDED:
+//                        break;
+//
+//                    case DragEvent.ACTION_DROP:
+//                        float x = event.getX();
+//                        float y = event.getY();
+//                        float widthShip, heightShip;
+//
+//                        if (!shipBeingDragged.getShip().getShipDirection()) {
+//                            widthShip = shipBeingDragged.getShipImage().getHeight();
+//                            heightShip = shipBeingDragged.getShipImage().getWidth();
+//
+//                        } else {
+//                            widthShip = shipBeingDragged.getShipImage().getWidth();
+//                            heightShip = shipBeingDragged.getShipImage().getHeight();
+//                        }
+//
+//                        //x and y coordinates of top-left of image, relative to the board
+//                        float boardX = x - (widthShip / 2);
+//                        float boardY = y - (heightShip / 2);
+//
+//                        int xy = boardView.locatePlace(boardX, boardY);
+//                        if (xy == -1) {
+//                            return true;
+//                        }
+//                        int xGrid = xy / 100;
+//                        int yGrid = xy % 100;
+//
+////                        boardView.invalidate();
+////                        if (board.isFleetEmpty()) {
+////                            continueBtn.setEnabled(true);
+////                        }
+//                        break;
+//
+//                    default:
+//                        break;
+//                }
+//                return true;
+//            }
+//        };
+
+        //boardView.setOnDragListener(boardDragListener);
     }
+
 
     public void setBoardDragListener(final BoardView boardView, final Board board) {
         boardView.setOnDragListener(new View.OnDragListener() {
@@ -110,37 +189,82 @@ public class GameScreenActivity extends AppCompatActivity {
                         break;
 
                     case DragEvent.ACTION_DRAG_ENDED:
+                        v.setVisibility(View.VISIBLE);
+                        v.invalidate();
                         break;
 
                     case DragEvent.ACTION_DROP:
-                        float x = event.getX();
-                        float y = event.getY();
-                        float widthShip, heightShip;
+//                        float x = event.getX();
+//                        float y = event.getY();
+//                        float widthShip, heightShip;
+//
+//                        if (!shipBeingDragged.getShip().getShipDirection()) {
+//                            widthShip = shipBeingDragged.getShipImage().getHeight();
+//                            heightShip = shipBeingDragged.getShipImage().getWidth();
+//
+//                        } else {
+//                            widthShip = shipBeingDragged.getShipImage().getWidth();
+//                            heightShip = shipBeingDragged.getShipImage().getHeight();
+//                        }
+//
+//                        //x and y coordinates of top-left of image, relative to the board
+//                        float boardX = x - (widthShip / 2);
+//                        float boardY = y - (heightShip / 2);
+//
+//                        int xy = boardView.locatePlace(boardX, boardY);
+//                        if (xy == -1) {
+//                            return true;
+//                        }
+//                        int xGrid = xy / 100;
+//                        int yGrid = xy % 100;
+//
+//                        boardView.invalidate();
+//                        if (board.isFleetEmpty()) {
+//                            continueBtn.setEnabled(true);
+//                        }
 
-                        if (!shipBeingDragged.getShip().getShipDirection()) {
-                            widthShip = shipBeingDragged.getShipImage().getHeight();
-                            heightShip = shipBeingDragged.getShipImage().getWidth();
 
-                        } else {
-                            widthShip = shipBeingDragged.getShipImage().getWidth();
-                            heightShip = shipBeingDragged.getShipImage().getHeight();
-                        }
+                        v.setX(event.getX() - v.getWidth() / 2);
+                        v.setY(event.getY() - v.getHeight() / 2);
 
-                        //x and y coordinates of top-left of image, relative to the board
-                        float boardX = x - (widthShip / 2);
-                        float boardY = y - (heightShip / 2);
 
-                        int xy = boardView.locatePlace(boardX, boardY);
-                        if (xy == -1) {
-                            return true;
-                        }
-                        int xGrid = xy / 100;
-                        int yGrid = xy % 100;
+//                        View newView = (View) event.getLocalState();
+//                        ViewGroup owner = (ViewGroup) newView.getParent();
+//                        owner.removeView(newView);
+//                        FrameLayout container = (FrameLayout) v;
+//                        container.addView(newView);
+//                        newView.setVisibility(View.VISIBLE);
+//                        newView.setX(event.getX());
+//                        newView.setY(event.getY());
 
-                        boardView.invalidate();
-                        if (board.isFleetEmpty()) {
-                            continueBtn.setEnabled(true);
-                        }
+//                        View view = (View) event.getLocalState();
+//                        ViewGroup owner = (ViewGroup) view.getParent();
+//                        owner.removeView(view);
+//                        LinearLayout container = (LinearLayout) v;
+//                        container.addView(view);
+//                        view.setVisibility(View.VISIBLE);
+
+
+//                        v.getBackground().clearColorFilter();
+//                        v.invalidate();
+
+//                        View vw = (View) event.getLocalState();
+//                        ViewGroup from = (ViewGroup) vw.getParent();
+//                        from.removeView(vw);
+//                        ViewGroup owner = (ViewGroup) v.getParent();
+//                        owner.removeView(v);
+//                        LinearLayout container = (LinearLayout) v;
+//                        container.addView(v);
+//                        v.setVisibility(View.VISIBLE);
+//                        v.invalidate();
+
+
+                        //layout parent = v.getParent();
+
+//                        //parent.
+//                        binding = ActivityPlaceShipsBinding.inflate(getLayoutInflater());
+//                        View view = binding.getRoot();
+//                        setContentView(view);
                         break;
 
                     default:
@@ -233,6 +357,93 @@ public class GameScreenActivity extends AppCompatActivity {
 
         });
     }
+
+    // This defines your touch listener
+    private final class MyTouchListener implements View.OnTouchListener {
+        public boolean onTouch(View view, MotionEvent motionEvent) {
+            if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
+                ClipData data = ClipData.newPlainText("", "");
+                View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(
+                        view);
+                view.startDragAndDrop(data, shadowBuilder, view, 0);
+                view.setVisibility(View.INVISIBLE);
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+
+
+    private class MyOnLongClickListener implements View.OnLongClickListener {
+
+        @Override
+        public boolean onLongClick(View view) {
+            ClipData data = ClipData.newPlainText("simle_text", "text");
+
+            View.DragShadowBuilder sb = new View.DragShadowBuilder(view);
+
+            view.startDragAndDrop(data, sb, view, 0);
+            view.setVisibility(View.INVISIBLE);
+
+            return true;
+        }
+
+
+    }
+
+
+    private class MyOnDragListener implements View.OnDragListener {
+
+        private int num;
+
+        public MyOnDragListener(int num) {
+            super();
+            this.num = num;
+        }
+
+        @Override
+        public boolean onDrag(View view, DragEvent dragEvent) {
+
+            int action = dragEvent.getAction();
+            switch (action) {
+                case DragEvent.ACTION_DRAG_STARTED:
+                    if (dragEvent.getClipDescription().hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN)) {
+                        return true;
+                    }
+                    return false;
+                case DragEvent.ACTION_DRAG_ENTERED:
+                   // view.setBackgroundColor(Color.YELLOW);
+                    break;
+                case DragEvent.ACTION_DRAG_LOCATION:
+                    break;
+                case DragEvent.ACTION_DRAG_EXITED:
+                    //view.setBackgroundColor(Color.BLUE);
+                    break;
+                case DragEvent.ACTION_DROP:
+                    View myView = (View) dragEvent.getLocalState();
+                    ViewGroup owner = (ViewGroup) myView.getParent();
+                    owner.removeView(myView);
+                    //ConstraintLayout container = (ConstraintLayout) view;
+                    //View ch = container.getChildAt(0);
+                    BoardView container = (BoardView) view;
+
+                    ConstraintLayout parentContainer = (ConstraintLayout) container.getParent();
+                    parentContainer.addView(myView);
+                    //container.addView(view);
+                    myView.setVisibility(View.VISIBLE);
+
+
+                    break;
+                case DragEvent.ACTION_DRAG_ENDED:
+                    //view.setBackgroundColor(Color.BLUE);
+                    break;
+
+            }
+            return true;
+        }
+    }
+
 
 }
 

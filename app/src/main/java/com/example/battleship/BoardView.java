@@ -291,6 +291,7 @@ public class BoardView extends View implements Serializable {
         }
     }
 
+
     /**
      * Callback interface to listen for board touches.
      */
