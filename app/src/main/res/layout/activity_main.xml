@@ -4,13 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
     android:background="@drawable/main_bg"
-
-    >
+    android:layoutDirection="ltr"
+    tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/app_name_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="casual"
@@ -18,7 +17,7 @@
         android:textColor="@color/black"
         android:textSize="34sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/start_game_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.944"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,31 +25,67 @@
         app:layout_constraintVertical_bias="0.367" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/button"
+        android:id="@+id/start_game_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="10dp"
         android:backgroundTint="#00FDF9F5"
         android:fontFamily="casual"
+        android:onClick="onStartGameBtn"
         android:text="@string/start_game_str"
-        android:textSize="28dp"
+        android:textSize="28sp"
         app:cornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.531"
         app:layout_constraintStart_toStartOf="parent"
         app:strokeColor="@color/black"
-        app:strokeWidth="3dp"
-        android:onClick="onStartGameBtn"
+        app:strokeWidth="3dp" />
 
-        />
-
-    <Button
-        android:id="@+id/button2"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/log_out_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="#00FDF9F5"
+        android:fontFamily="casual"
         android:onClick="logout"
-        android:text="Log Out"
-        tools:layout_editor_absoluteX="315dp"
-        tools:layout_editor_absoluteY="2dp" />
+        android:text="@string/log_out_text"
+        app:cornerRadius="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="@color/black"
+        app:strokeWidth="3dp" />
+
+    <TextView
+        android:id="@+id/welcome_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginEnd="50dp"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/match_history_btn" />
+
+    <ImageButton
+        android:id="@+id/settingsImageBtn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/settings"
+        android:onClick="onClickSettingsBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/match_history_btn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:onClick="showMatchHistory"
+        android:paddingStart="0dp"
+        android:paddingEnd="20dp"
+        android:src="@drawable/match_history_icon"
+        app:layout_constraintStart_toEndOf="@+id/settingsImageBtn"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

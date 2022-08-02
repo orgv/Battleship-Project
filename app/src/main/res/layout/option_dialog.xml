@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="20dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/dialog_sw_music"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/music"
+        app:layout_constraintBottom_toTopOf="@id/dialog_sw_sound"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/dialog_sw_sound"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/sound"
+        app:layout_constraintBottom_toTopOf="@id/bt_quit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_sw_music" />
+
+    <Button
+        android:id="@+id/bt_quit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/quit_text"
+        app:layout_constraintBottom_toTopOf="@id/bt_continue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_sw_sound" />
+
+    <Button
+        android:id="@+id/bt_continue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/continue_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bt_quit" />
+</androidx.constraintlayout.widget.ConstraintLayout>

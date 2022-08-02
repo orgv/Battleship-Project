@@ -1,0 +1,274 @@
+@startuml
+
+title __BATTLESHIP_PROJECT.APP's Class Diagram__\n
+
+  namespace com.example.battleship {
+    abstract class com.example.battleship.AbstractPlayer {
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.Board {
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.BoardView {
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.BuildConfig {
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.Cell {
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.ComputerPlayer {
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.CreateAccountActivity {
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.CustomAdapter {
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.CustomDialog {
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.GameOnDeviceServer {
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.GamePlayActivity {
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.GameSystem {
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    namespace Logic {
+      class com.example.battleship.Logic.Board {
+      }
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    namespace Logic {
+      class com.example.battleship.Logic.Game {
+      }
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    namespace Logic {
+      class com.example.battleship.Logic.Place {
+      }
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    namespace Logic {
+      class com.example.battleship.Logic.Player {
+      }
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    namespace Logic {
+      class com.example.battleship.Logic.Point {
+      }
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    namespace Logic {
+      class com.example.battleship.Logic.ScoreBoard {
+      }
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    namespace Logic {
+      class com.example.battleship.Logic.Ship {
+      }
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    namespace Logic {
+      class com.example.battleship.Logic.Tile {
+      }
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.LoginActivity {
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.MainActivity {
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.MatchHistoryActivity {
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.MediaManager {
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.MenuScreenActivity {
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.MusicSoundHandlerApp {
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.PlaceShipsActivity {
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.Player {
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.RowItem {
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.Ship {
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.SignInUpActivity {
+    }
+  }
+  
+
+  com.example.battleship.AbstractPlayer o-- com.example.battleship.GamePlayActivity : activity
+  com.example.battleship.AbstractPlayer o-- com.example.battleship.Cell : lastShootCell
+  com.example.battleship.AbstractPlayer o-- com.example.battleship.MusicSoundHandlerApp : myApp
+  com.example.battleship.AbstractPlayer o-- com.example.battleship.Board : myBoard
+  com.example.battleship.AbstractPlayer o-- com.example.battleship.Board : opponentBoard
+  com.example.battleship.Board .up.|> java.io.Serializable
+  com.example.battleship.BoardView -up-|> android.widget.RelativeLayout
+  com.example.battleship.BoardView o-- com.example.battleship.Board : board
+  com.example.battleship.Cell .up.|> java.io.Serializable
+  com.example.battleship.Cell o-- com.example.battleship.Ship : ship
+  com.example.battleship.ComputerPlayer -up-|> com.example.battleship.AbstractPlayer
+  com.example.battleship.ComputerPlayer o-- com.example.battleship.Cell : firstHit
+  com.example.battleship.ComputerPlayer o-- com.example.battleship.Cell : nextHit
+  com.example.battleship.CreateAccountActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.example.battleship.CustomAdapter -up-|> android.widget.BaseAdapter
+  com.example.battleship.CustomDialog .up.|> android.view.View.OnClickListener
+  com.example.battleship.CustomDialog -up-|> android.app.Dialog
+  com.example.battleship.GameOnDeviceServer .up.|> java.lang.Runnable
+  com.example.battleship.GameOnDeviceServer o-- com.example.battleship.GameOnDeviceServer.GamePlay : game
+  com.example.battleship.GamePlayActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.example.battleship.GamePlayActivity o-- com.example.battleship.GameSystem : game
+  com.example.battleship.GamePlayActivity o-- com.example.battleship.MusicSoundHandlerApp : myApp
+  com.example.battleship.GamePlayActivity o-- com.example.battleship.BoardView : myBoardView
+  com.example.battleship.GamePlayActivity o-- com.example.battleship.BoardView : opponentBoardView
+  com.example.battleship.GameSystem o-- com.example.battleship.ComputerPlayer : com
+  com.example.battleship.GameSystem o-- com.example.battleship.GameOnDeviceServer : gameOnDeviceServer
+  com.example.battleship.GameSystem o-- com.example.battleship.Player : me
+  com.example.battleship.Logic.Game o-- com.example.battleship.Logic.Point : calculatedPoint
+  com.example.battleship.Logic.Game o-- com.example.battleship.Logic.Board : computerBoard
+  com.example.battleship.Logic.Game o-- com.example.battleship.Logic.Point : computerCurrentPoint
+  com.example.battleship.Logic.Game o-- com.example.battleship.Logic.Point : computerLastHitPoint
+  com.example.battleship.Logic.Game o-- com.example.battleship.Logic.Board : playerBoard
+  com.example.battleship.Logic.Game o-- com.example.battleship.Logic.Point : randomPoint
+  com.example.battleship.Logic.Place .up.|> java.io.Serializable
+  com.example.battleship.Logic.Place o-- com.example.battleship.Logic.Ship : ship
+  com.example.battleship.Logic.Ship o-- com.example.battleship.Logic.Point : headPoint
+  com.example.battleship.Logic.Ship o-- com.example.battleship.Logic.Ship.ShipType : shipType
+  com.example.battleship.Logic.Tile o-- com.example.battleship.Logic.Ship : ship
+  com.example.battleship.Logic.Tile o-- com.example.battleship.Logic.Tile.Status : tileStatus
+  com.example.battleship.LoginActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.example.battleship.MainActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.example.battleship.MainActivity o-- com.example.battleship.CustomDialog : dmDialog
+  com.example.battleship.MatchHistoryActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.example.battleship.MenuScreenActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.example.battleship.MenuScreenActivity o-- com.example.battleship.MusicSoundHandlerApp : myApp
+  com.example.battleship.MusicSoundHandlerApp -up-|> android.app.Application
+  com.example.battleship.MusicSoundHandlerApp o-- com.example.battleship.MediaManager : mediaManager
+  com.example.battleship.PlaceShipsActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.example.battleship.PlaceShipsActivity o-- com.example.battleship.Board : board
+  com.example.battleship.PlaceShipsActivity o-- com.example.battleship.BoardView : boardView
+  com.example.battleship.PlaceShipsActivity o-- com.example.battleship.MusicSoundHandlerApp : myApp
+  com.example.battleship.PlaceShipsActivity o-- com.example.battleship.Ship : selectedShip
+  com.example.battleship.PlaceShipsActivity o-- com.example.battleship.Cell : selectedShipOriginalLocation
+  com.example.battleship.Player -up-|> com.example.battleship.AbstractPlayer
+  com.example.battleship.Player o-- com.example.battleship.CustomDialog : endGameDialog
+  com.example.battleship.Ship .up.|> java.io.Serializable
+  com.example.battleship.SignInUpActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.example.battleship.SignInUpActivity o-- com.example.battleship.CustomDialog : dmDialog
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

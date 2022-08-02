@@ -1,6 +1,47 @@
 <resources>
-    <string name="app_name">BattleShip</string>
-    <string name="battleship_str">BattleShip</string>
+    <string name="app_name" translatable="false">BattleShip</string>
+    <string name="battleship_str" translatable="false">Battleship</string>
     <string name="start_game_str">Start Game</string>
-    <string name="player_name">My Board</string>
+
+    <string name="login">Login</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="match_history">Match History</string>
+    <string name="pvp_text">Play Against Another Player</string>
+    <string name="pve_text">Play Against Computer</string>
+    <string name="music">Music</string>
+    <string name="sound">Sound</string>
+    <string name="random">RANDOM</string>
+    <string name="start">Start</string>
+    <string name="tv_vs_game_mode_text">VS AI</string>
+    <string name="tv_game_result_text">Defeat</string>
+    <string name="my_name_text">Me</string>
+    <string name="vs_text">VS</string>
+    <string name="opponent_name_text">OPPONENT </string>
+    <string name="loss_text">You Lost!</string>
+    <string name="main_menu_text">Main Menu</string>
+    <string name="play_again_text">Play Again</string>
+    <string name="languages_text">Languages</string>
+    <string name="soon_text">More languages will be added soon!</string>
+    <string name="win_text">You Won!</string>
+    <string name="quit_text">Quit</string>
+    <string name="continue_text">Continue</string>
+    <string name="log_out_text">Log Out</string>
+    <string name="rotate_text">ROTATE</string>
+    <string name="menu_text">Menu</string>
+    <string name="turn_text">"TURN "</string>
+    <string name="your_turn_text">YOUR TURN</string>
+    <string name="opponent_turn_text">OPPONENT\'S TURN</string>
+    <string name="congrats_text" translatable="false">Well done soldier!</string>
+    <string name="turns_played_text">Turns Played: </string>
+    <string name="opponent_text" translatable="false">"Opponent "</string>
+    <string name="cheer_up_text" translatable="false">Better luck next time!</string>
+    <string name="sunk_text" translatable="false">"sunk "</string>
+    <string name="hit_text" translatable="false">"hit "</string>
+    <string name="your_text" translatable="false">"your "</string>
+    <string name="you_text" translatable="false">"You "</string>
+    <string name="missed_text" translatable="false">"missed "</string>
+    <string name="opponents_text" translatable="false">"opponent's "</string>
+    <string name="opponents_ship_text" translatable="false">"opponent's ship "</string>
 </resources>

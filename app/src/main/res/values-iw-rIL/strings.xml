@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="start_game_str">התחל לשחק</string>
+    <string name="login">התחבר</string>
+    <string name="sign_up">הירשם</string>
+    <string name="email">אימייל</string>
+    <string name="password">סיסמה</string>
+    <string name="match_history">היסטוריית משחקים</string>
+    <string name="pvp_text">שחק נגד שחקן אחר</string>
+    <string name="pve_text">שחק נגד המחשב</string>
+    <string name="music">מוזיקה</string>
+    <string name="sound">סאונד</string>
+    <string name="random">אקראי</string>
+    <string name="start">התחל</string>
+    <string name="tv_vs_game_mode_text">נגד המחשב</string>
+    <string name="tv_game_result_text">הפסד</string>
+    <string name="my_name_text">אני</string>
+    <string name="vs_text">נגד</string>
+    <string name="opponent_name_text">יריב</string>
+    <string name="loss_text">הפסדת!</string>
+    <string name="main_menu_text">תפריט ראשי</string>
+    <string name="play_again_text">שחק שוב</string>
+    <string name="languages_text">שפות</string>
+    <string name="soon_text">שפות נוספות יתווספו בקרוב!</string>
+    <string name="win_text">ניצחת!</string>
+    <string name="quit_text">צא</string>
+    <string name="continue_text">המשך</string>
+    <string name="log_out_text">התנתק</string>
+    <string name="rotate_text">סובב</string>
+    <string name="menu_text">תפריט</string>
+    <string name="turn_text">"תור "</string>
+    <string name="your_turn_text">תורך</string>
+    <string name="opponent_turn_text">תור היריב</string>
+    <string name="turns_played_text">"תורות ששוחקו: "</string>
+</resources>

@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignInUpActivity"
-    android:background="@drawable/main_bg">
-
+    android:background="@drawable/main_bg"
+    tools:context=".SignInUpActivity">
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/loginButton"
@@ -15,7 +14,7 @@
         android:layout_centerHorizontal="true"
         android:backgroundTint="@color/black"
         android:onClick="onClickLoginMainActivity"
-        android:text="Login"
+        android:text="@string/login"
         android:textAppearance="?android:textAppearanceLarge"
         android:textSize="30sp"
         app:cornerRadius="50dp"
@@ -32,7 +31,7 @@
         android:layout_marginBottom="16dp"
         android:backgroundTint="@color/black"
         android:onClick="onClickSignUpMainActivity"
-        android:text="Sign Up"
+        android:text="@string/sign_up"
         android:textAppearance="?android:textAppearanceLarge"
         android:textSize="30sp"
         app:cornerRadius="50dp"
@@ -40,6 +39,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent" />
+
+
+    <ImageButton
+        android:id="@+id/settingsImageBtn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/settings"
+        android:onClick="onClickSettingsBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

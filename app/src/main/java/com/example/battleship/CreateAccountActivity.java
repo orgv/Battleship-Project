@@ -28,6 +28,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -50,7 +52,6 @@ public class CreateAccountActivity extends AppCompatActivity {
         emailEditText = findViewById(R.id.emailEditText);
         passwordEditText = findViewById(R.id.passwordEditText);
 
-        firebaseDatabase = FirebaseDatabase.getInstance();
     }
 
 //    @Override
@@ -71,34 +72,34 @@ public class CreateAccountActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+
+
+                            db = FirebaseFirestore.getInstance();
+
+                            // Create a new user with a first and last name
+                            Map<String, Object> user = new HashMap<>();
+
+                            user.put("email", email);
+                            user.put("score", 0);
+                            user.put("wins", 0);
+                            user.put("losses", 0);
+                            user.put("min_turns_to_win", -1); // min turns number vs cpu score.
+                            user.put("matchesResultHistory", Collections.emptyList()); // string type
+                            user.put("numberOfTurnsHistory", Collections.emptyList()); // int type
+
+
+                            String userDocumentId = "[" + email + "]_UserData";
+
+                            // Add a new document with a generated ID
+                            db.collection("Users").document(userDocumentId).set(user)
+                                    .addOnSuccessListener(documentReference -> Log.d("Success", "DocumentSnapshot added with ID: " + email + "UserData"))
+                                    .addOnFailureListener(e -> Log.w("Failure", "Error adding document", e));
+
                             startActivity(new Intent(CreateAccountActivity.this, LoginActivity.class));
                         } else {
                             Toast.makeText(CreateAccountActivity.this, "Register Failed", Toast.LENGTH_SHORT).show();
 
                         }
-                    }
-                });
-        db = FirebaseFirestore.getInstance();
-        // Create a new user with a first and last name
-        Map<String, Object> user = new HashMap<>();
-        user.put("email", email);
-        user.put("score", 0);
-        user.put("wins", 0);
-        user.put("losses", 0);
-
-// Add a new document with a generated ID
-        db.collection("users")
-                .add(user)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Log.d("Success", "DocumentSnapshot added with ID: " + documentReference.getId());
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w("Failure", "Error adding document", e);
                     }
                 });
 

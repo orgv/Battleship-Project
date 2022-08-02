@@ -3,8 +3,25 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Or/AndroidStudioProjects/BattleshipProject/app/src/main/res/drawable/button_shape.xml" value="0.1335" />
+        <entry key="..\:/Users/Or/AndroidStudioProjects/BattleshipProject/app/src/main/res/layout/activity_create_account.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Or/AndroidStudioProjects/BattleshipProject/app/src/main/res/layout/activity_game.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Or/AndroidStudioProjects/BattleshipProject/app/src/main/res/layout/activity_place_ships.xml" value="0.1" />
+        <entry key="..\:/Users/Or/AndroidStudioProjects/BattleshipProject/app/src/main/res/layout/activity_game_play.xml" value="0.1" />
+        <entry key="..\:/Users/Or/AndroidStudioProjects/BattleshipProject/app/src/main/res/layout/activity_login.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Or/AndroidStudioProjects/BattleshipProject/app/src/main/res/layout/activity_main.xml" value="0.5" />
+        <entry key="..\:/Users/Or/AndroidStudioProjects/BattleshipProject/app/src/main/res/layout/activity_match_history.xml" value="0.1" />
+        <entry key="..\:/Users/Or/AndroidStudioProjects/BattleshipProject/app/src/main/res/layout/activity_menu_screen.xml" value="0.3009833262077811" />
+        <entry key="..\:/Users/Or/AndroidStudioProjects/BattleshipProject/app/src/main/res/layout/activity_place_ships.xml" value="0.33" />
+        <entry key="..\:/Users/Or/AndroidStudioProjects/BattleshipProject/app/src/main/res/layout/activity_place_ships2.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Or/AndroidStudioProjects/BattleshipProject/app/src/main/res/layout/activity_sign_in_up.xml" value="0.29717180244829045" />
+        <entry key="..\:/Users/Or/AndroidStudioProjects/BattleshipProject/app/src/main/res/layout/list_view_row.xml" value="1.0" />
+        <entry key="..\:/Users/Or/AndroidStudioProjects/BattleshipProject/app/src/main/res/layout/lose_dialog.xml" value="0.3009833262077811" />
+        <entry key="..\:/Users/Or/AndroidStudioProjects/BattleshipProject/app/src/main/res/layout/loss_dialog.xml" value="0.41259640102827766" />
+        <entry key="..\:/Users/Or/AndroidStudioProjects/BattleshipProject/app/src/main/res/layout/match_history.xml" value="0.3009833262077811" />
+        <entry key="..\:/Users/Or/AndroidStudioProjects/BattleshipProject/app/src/main/res/layout/option_dialog.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Or/AndroidStudioProjects/BattleshipProject/app/src/main/res/layout/settings_dialog.xml" value="0.1" />
+        <entry key="..\:/Users/Or/AndroidStudioProjects/BattleshipProject/app/src/main/res/layout/test3_layout.xml" value="0.3009833262077811" />
+        <entry key="..\:/Users/Or/AndroidStudioProjects/BattleshipProject/app/src/main/res/layout/win_dialog.xml" value="0.3009833262077811" />
       </map>
     </option>
   </component>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_bg"
+    tools:context=".MenuScreenActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_play_vs_player"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:backgroundTint="#00FDF9F5"
+            android:fontFamily="casual"
+            android:maxLines="1"
+            android:text="@string/pvp_text"
+            android:textSize="20sp"
+            app:cornerRadius="30dp"
+            app:strokeColor="@color/black"
+            app:strokeWidth="3dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_play_vs_computer"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:backgroundTint="#00FDF9F5"
+            android:fontFamily="casual"
+            android:maxLines="1"
+            android:text="@string/pve_text"
+            android:textSize="20sp"
+            app:cornerRadius="30dp"
+            app:strokeColor="@color/black"
+            app:strokeWidth="3dp" />
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/sw_music"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="@string/music"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/sw_sound"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="@string/sound"
+        app:layout_constraintEnd_toEndOf="@+id/sw_music"
+        app:layout_constraintTop_toBottomOf="@+id/sw_music" />
+
+    <TextView
+        android:id="@+id/highscore_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

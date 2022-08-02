@@ -1,0 +1,591 @@
+@startuml
+
+title __BATTLESHIP's Class Diagram__\n
+
+  namespace com.example.battleship {
+    abstract class com.example.battleship.AbstractPlayer {
+        ~ command : String
+        ~ hasCommand : boolean
+        ~ ip : String
+        ~ isPlaying : boolean
+        ~ port : int
+        ~ reader : BufferedReader
+        ~ socket : Socket
+        ~ writer : PrintWriter
+        + AbstractPlayer()
+        {abstract} ~ _wait()
+        ~ checkCommand()
+        ~ checkShoot()
+        ~ close()
+        {abstract} ~ displayMessage()
+        {abstract} ~ endGame()
+        {abstract} ~ playSoundEffect()
+        {abstract} ~ processShootResult()
+        ~ sendMessage()
+        {abstract} ~ shoot()
+        - getCommand()
+        - play()
+        - putCommand()
+        - setUpNetwork()
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.AbstractPlayer.MessageSender {
+        # doInBackground()
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.Board {
+        {static} + NUMBER_OF_SHIPS : int
+        {static} + SIZE : int
+        - cells : Cell[][]
+        - ships : ArrayList<Ship>
+        + Board()
+        + allShipPlaced()
+        + checkYourself()
+        + getCell()
+        + getShip()
+        + getShip()
+        + getShips()
+        + placeShip()
+        + placeShipsRandomly()
+        + rotateShip()
+        ~ isOutOfBounds()
+        - areAllShipsSunk()
+        - init()
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.BoardView {
+        ~ boardLinePaint : Paint
+        ~ mCanvas : Canvas
+        ~ readyToDraw : boolean
+        + BoardView()
+        + BoardView()
+        + getBoard()
+        + setBoard()
+        + setReadyToDraw()
+        # dispatchDraw()
+        ~ cellSize()
+        ~ locateCell()
+        - drawGrid()
+        - drawHitCells()
+        - drawShips()
+        - initializePaint()
+        - mDrawBitmap()
+        - mDrawBitmap()
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.Cell {
+        - isHit : boolean
+        - x : int
+        - y : int
+        + Cell()
+        + checkYourself()
+        + getShip()
+        + getX()
+        + getY()
+        + hasShip()
+        + hit()
+        + isHit()
+        + removeShip()
+        + setShip()
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.ComputerPlayer {
+        - secondShootDir : ArrayList<Integer>
+        + ComputerPlayer()
+        ~ _wait()
+        ~ displayMessage()
+        ~ endGame()
+        ~ playSoundEffect()
+        ~ processShootResult()
+        ~ shoot()
+        ~ shootRandomly()
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.CreateAccountActivity {
+        ~ db : FirebaseFirestore
+        - emailEditText : EditText
+        - firebaseDatabase : FirebaseDatabase
+        - mAuth : FirebaseAuth
+        - passwordEditText : EditText
+        + onClickCreateAccount()
+        # onCreate()
+        ~ checkDataEntered()
+        ~ isEmail()
+        ~ isEmpty()
+        - Register()
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.CustomAdapter {
+        - singleRow : ArrayList<RowItem>
+        - thisInflater : LayoutInflater
+        + CustomAdapter()
+        + getCount()
+        + getItem()
+        + getItemId()
+        + getView()
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.CustomDialog {
+        + dmActivity : Activity
+        + CustomDialog()
+        + CustomDialog()
+        + getActivity()
+        + onBackPressed()
+        + onClick()
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.GameOnDeviceServer {
+        - port : int
+        - serverSock : ServerSocket
+        - serverStarted : boolean
+        + run()
+        ~ endGame()
+        ~ start()
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.GameOnDeviceServer.GamePlay {
+        ~ isPlaying : boolean
+        ~ readers : BufferedReader[]
+        ~ shootingPlayer : int
+        ~ waitingPlayer : int
+        ~ writers : PrintWriter[]
+        + GamePlay()
+        ~ setUpGame()
+        - endGame()
+        - endTurn()
+        - read()
+        - startGame()
+        - tellPlayerToCheckShootResult()
+        - tellPlayerToShoot()
+        - write()
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.GamePlayActivity {
+        - dialog : Dialog
+        - progressBar : ProgressBar
+        - turnNumber : TextView
+        - tvResult : TextView
+        - tvStatus : TextView
+        + createDialog()
+        + onBackPressed()
+        # onCreate()
+        # onDestroy()
+        # onPause()
+        # onResume()
+        ~ disableOpponentBoard()
+        ~ disableProgressBar()
+        ~ displayMessage()
+        ~ displayResult()
+        ~ enableOpponentBoard()
+        ~ enableProgressBar()
+        ~ incrementTurnNumber()
+        ~ reDrawBoardViews()
+        - setUp()
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.GamePlayActivity.BoardTouchListener {
+        + onTouch()
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.GameSystem {
+        {static} + BATTLESHIP : String
+        {static} + CARRIER : String
+        {static} + CRUISER : String
+        {static} + DESTROYER : String
+        {static} + HIT : String
+        {static} + KILL : String
+        {static} + LOSE : String
+        {static} + MISS : String
+        {static} + MODE_VS_COMPUTER : int
+        {static} + MODE_VS_PLAYER : int
+        {static} + NULL : String
+        {static} + OPPONENT_DISCONNECTED : String
+        {static} + READY : String
+        {static} + SHOOT : String
+        {static} + START : String
+        {static} + SUBMARINE : String
+        {static} + WAIT : String
+        {static} + WIN : String
+        ~ GameSystem()
+        ~ end()
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.LoginActivity {
+        - emailEditText : EditText
+        - mAuth : FirebaseAuth
+        - passwordEditText : EditText
+        + onClickLoginSubActivity()
+        + onStart()
+        # onCreate()
+        ~ checkDataEntered()
+        ~ isEmail()
+        ~ isEmpty()
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.MainActivity {
+        + logout()
+        + onBackPressed()
+        + onClickIsraelBtn()
+        + onClickSettingsBtn()
+        + onClickUsBtn()
+        + onStartGameBtn()
+        {static} + setLocale()
+        + setLocale()
+        + showMatchHistory()
+        # onCreate()
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.MatchHistoryActivity {
+        - adapter : ArrayAdapter<String>
+        - matchesListView : ListView
+        {static} - myRowItems : ArrayList<RowItem>
+        {static} + addRowToList()
+        # onCreate()
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.MediaManager {
+        - mContext : Context
+        - mediaPlayer : MediaPlayer
+        + MediaManager()
+        ~ pause()
+        ~ play()
+        ~ release()
+        ~ resume()
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.MenuScreenActivity {
+        # onCreate()
+        # onDestroy()
+        # onPause()
+        # onResume()
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.MenuScreenActivity.PlayListener {
+        ~ mode : int
+        + onClick()
+        ~ PlayListener()
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.MusicSoundHandlerApp {
+        {static} + MUSIC_ID_PLACE : int
+        {static} + MUSIC_ID_PLAY : int
+        {static} + MUSIC_ID_START : int
+        {static} + SOUND_ID_BLOCKED : int
+        {static} + SOUND_ID_FIRE : int
+        {static} + SOUND_ID_GAME_START : int
+        {static} + SOUND_ID_HIT : int
+        {static} + SOUND_ID_LOSE : int
+        {static} + SOUND_ID_MISS : int
+        {static} + SOUND_ID_PICKUP : int
+        {static} + SOUND_ID_PLACE : int
+        {static} + SOUND_ID_WIN : int
+        ~ LEFT_VOLUME_VALUE : float
+        ~ MUSIC_LOOP : int
+        ~ PLAY_RATE : float
+        ~ RIGHT_VOLUME_VALUE : float
+        ~ SOUND_PLAY_PRIORITY : int
+        ~ sharedPref : SharedPreferences
+        - isMusicOn : boolean
+        - isSoundOn : boolean
+        - soundPool : SoundPool
+        + isMusicOn()
+        + isSoundOn()
+        + onCreate()
+        + pauseMusic()
+        + playMusic()
+        + playSoundEffect()
+        + releaseMediaPlayer()
+        + releaseSoundPool()
+        + resumeMusic()
+        + saveSettings()
+        + setMusicOn()
+        + setSoundOn()
+        - initSoundAndMusic()
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.PlaceShipsActivity {
+        - btStart : Button
+        - cellSize : float
+        - isDragging : boolean
+        - ivShips : ImageView[]
+        - mode : int
+        - toast : Toast
+        # onCreate()
+        # onDestroy()
+        # onPause()
+        # onResume()
+        - displayMessage()
+        - init()
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.PlaceShipsActivity.BoardOnDragListener {
+        + onDrag()
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.PlaceShipsActivity.RandomListener {
+        + onClick()
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.PlaceShipsActivity.RotateListener {
+        + onClick()
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.PlaceShipsActivity.ShipTouchListener {
+        - id : int
+        + onTouch()
+        ~ ShipTouchListener()
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.PlaceShipsActivity.StartListener {
+        + onClick()
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.Player {
+        {static} + CURRENT_MATCH_RESULT : String
+        {static} + EMAIL : String
+        {static} + LOSSES : int
+        {static} + MIN_TURNS_TO_WIN : int
+        {static} + NUMBER_OF_TURNS : int
+        {static} + SCORE : int
+        {static} + WINS : int
+        {static} + matchesInfoList : ArrayList<Pair<String, Integer>>
+        + Player()
+        {static} + addMatchToHistory()
+        {static} + fetchDatafromDB()
+        ~ _wait()
+        ~ checkShoot()
+        ~ displayMessage()
+        ~ endGame()
+        ~ playSoundEffect()
+        ~ processShootResult()
+        ~ shoot()
+        - updateUserData()
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.RowItem {
+        - matchMode : String
+        - matchResult : String
+        - opponentName : String
+        - playerName : String
+        + getMatchMode()
+        + getMatchResult()
+        + getOpponentName()
+        + getPlayerName()
+        + setMatchMode()
+        + setMatchResult()
+        + setOpponentName()
+        + setPlayerName()
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.Ship {
+        - hitCells : ArrayList<Cell>
+        - id : int
+        - isHorizontal : boolean
+        - isVisible : boolean
+        - location : ArrayList<Cell>
+        - name : String
+        - size : int
+        + Ship()
+        + addHitCell()
+        + getHeadCell()
+        + getId()
+        + getImageId()
+        + getLocation()
+        + getName()
+        + getSize()
+        + isHorizontal()
+        + isPlaced()
+        + isSunk()
+        + isVisible()
+        + place()
+        + remove()
+        + setVisible()
+        ~ setHorizontal()
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.Ship.CompareCell {
+        + compare()
+    }
+  }
+  
+
+  namespace com.example.battleship {
+    class com.example.battleship.SignInUpActivity {
+        - settingsBtn : ImageButton
+        + onClickIsraelBtn()
+        + onClickLoginMainActivity()
+        + onClickSettingsBtn()
+        + onClickSignUpMainActivity()
+        + onClickUsBtn()
+        {static} + setLocale()
+        + setLocale()
+        # onCreate()
+    }
+  }
+  
+
+  com.example.battleship.AbstractPlayer o-- com.example.battleship.GamePlayActivity : activity
+  com.example.battleship.AbstractPlayer o-- com.example.battleship.Cell : lastShootCell
+  com.example.battleship.AbstractPlayer o-- com.example.battleship.MusicSoundHandlerApp : myApp
+  com.example.battleship.AbstractPlayer o-- com.example.battleship.Board : myBoard
+  com.example.battleship.AbstractPlayer o-- com.example.battleship.Board : opponentBoard
+  com.example.battleship.AbstractPlayer +-down- com.example.battleship.AbstractPlayer.MessageSender
+  com.example.battleship.AbstractPlayer.MessageSender -up-|> android.os.AsyncTask
+  com.example.battleship.Board .up.|> java.io.Serializable
+  com.example.battleship.BoardView -up-|> android.widget.RelativeLayout
+  com.example.battleship.BoardView o-- com.example.battleship.Board : board
+  com.example.battleship.Cell .up.|> java.io.Serializable
+  com.example.battleship.Cell o-- com.example.battleship.Ship : ship
+  com.example.battleship.ComputerPlayer -up-|> com.example.battleship.AbstractPlayer
+  com.example.battleship.ComputerPlayer o-- com.example.battleship.Cell : firstHit
+  com.example.battleship.ComputerPlayer o-- com.example.battleship.Cell : nextHit
+  com.example.battleship.CreateAccountActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.example.battleship.CustomAdapter -up-|> android.widget.BaseAdapter
+  com.example.battleship.CustomDialog .up.|> android.view.View.OnClickListener
+  com.example.battleship.CustomDialog -up-|> android.app.Dialog
+  com.example.battleship.GameOnDeviceServer .up.|> java.lang.Runnable
+  com.example.battleship.GameOnDeviceServer o-- com.example.battleship.GameOnDeviceServer.GamePlay : game
+  com.example.battleship.GameOnDeviceServer +-down- com.example.battleship.GameOnDeviceServer.GamePlay
+  com.example.battleship.GamePlayActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.example.battleship.GamePlayActivity o-- com.example.battleship.GameSystem : game
+  com.example.battleship.GamePlayActivity o-- com.example.battleship.MusicSoundHandlerApp : myApp
+  com.example.battleship.GamePlayActivity o-- com.example.battleship.BoardView : myBoardView
+  com.example.battleship.GamePlayActivity o-- com.example.battleship.BoardView : opponentBoardView
+  com.example.battleship.GamePlayActivity +-down- com.example.battleship.GamePlayActivity.BoardTouchListener
+  com.example.battleship.GamePlayActivity.BoardTouchListener .up.|> android.view.View.OnTouchListener
+  com.example.battleship.GameSystem o-- com.example.battleship.ComputerPlayer : com
+  com.example.battleship.GameSystem o-- com.example.battleship.GameOnDeviceServer : gameOnDeviceServer
+  com.example.battleship.GameSystem o-- com.example.battleship.Player : me
+  com.example.battleship.LoginActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.example.battleship.MainActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.example.battleship.MainActivity o-- com.example.battleship.CustomDialog : dmDialog
+  com.example.battleship.MatchHistoryActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.example.battleship.MenuScreenActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.example.battleship.MenuScreenActivity o-- com.example.battleship.MusicSoundHandlerApp : myApp
+  com.example.battleship.MenuScreenActivity +-down- com.example.battleship.MenuScreenActivity.PlayListener
+  com.example.battleship.MenuScreenActivity.PlayListener .up.|> android.view.View.OnClickListener
+  com.example.battleship.MusicSoundHandlerApp -up-|> android.app.Application
+  com.example.battleship.MusicSoundHandlerApp o-- com.example.battleship.MediaManager : mediaManager
+  com.example.battleship.PlaceShipsActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.example.battleship.PlaceShipsActivity o-- com.example.battleship.Board : board
+  com.example.battleship.PlaceShipsActivity o-- com.example.battleship.BoardView : boardView
+  com.example.battleship.PlaceShipsActivity o-- com.example.battleship.MusicSoundHandlerApp : myApp
+  com.example.battleship.PlaceShipsActivity o-- com.example.battleship.Ship : selectedShip
+  com.example.battleship.PlaceShipsActivity o-- com.example.battleship.Cell : selectedShipOriginalLocation
+  com.example.battleship.PlaceShipsActivity +-down- com.example.battleship.PlaceShipsActivity.BoardOnDragListener
+  com.example.battleship.PlaceShipsActivity +-down- com.example.battleship.PlaceShipsActivity.RandomListener
+  com.example.battleship.PlaceShipsActivity +-down- com.example.battleship.PlaceShipsActivity.RotateListener
+  com.example.battleship.PlaceShipsActivity +-down- com.example.battleship.PlaceShipsActivity.ShipTouchListener
+  com.example.battleship.PlaceShipsActivity +-down- com.example.battleship.PlaceShipsActivity.StartListener
+  com.example.battleship.PlaceShipsActivity.BoardOnDragListener .up.|> android.view.View.OnDragListener
+  com.example.battleship.PlaceShipsActivity.RandomListener .up.|> android.view.View.OnClickListener
+  com.example.battleship.PlaceShipsActivity.RotateListener .up.|> android.view.View.OnClickListener
+  com.example.battleship.PlaceShipsActivity.ShipTouchListener .up.|> android.view.View.OnTouchListener
+  com.example.battleship.PlaceShipsActivity.StartListener .up.|> android.view.View.OnClickListener
+  com.example.battleship.Player -up-|> com.example.battleship.AbstractPlayer
+  com.example.battleship.Player o-- com.example.battleship.CustomDialog : endGameDialog
+  com.example.battleship.Ship .up.|> java.io.Serializable
+  com.example.battleship.Ship +-down- com.example.battleship.Ship.CompareCell
+  com.example.battleship.Ship.CompareCell .up.|> java.util.Comparator
+  com.example.battleship.SignInUpActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.example.battleship.SignInUpActivity o-- com.example.battleship.CustomDialog : dmDialog
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml
