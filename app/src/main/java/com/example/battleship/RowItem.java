@@ -7,19 +7,37 @@ public class RowItem {
     private String playerName;
     private String opponentName;
 
-    public String getMatchMode() { return matchMode; }
 
-    public void setMatchMode(String matchMode) { this.matchMode = matchMode; }
+    public String getMatchMode() {
+        return matchMode;
+    }
 
-    public String getMatchResult() { return matchResult; }
+    public void setMatchMode(String matchMode) {
+        this.matchMode = matchMode;
+    }
 
-    public void setMatchResult(String matchResult) { this.matchResult = matchResult; }
+    public String getMatchResult() {
+        return matchResult;
+    }
 
-    public String getPlayerName() { return playerName; }
+    public void setMatchResult(String matchResult) {
+        this.matchResult = matchResult;
+    }
 
-    public void setPlayerName(String playerName) { this.playerName = playerName; }
+    public String getPlayerName() {
+        return playerName;
+    }
 
-    public String getOpponentName() { return opponentName; }
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
+    }
 
-    public void setOpponentName(String opponentName) { this.opponentName = opponentName; }
+    public String getOpponentName() {
+        return opponentName;
+    }
+
+    public void setOpponentName(String opponentName) {
+        this.opponentName = opponentName;
+    }
+
 }

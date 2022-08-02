@@ -27,6 +27,7 @@ class ComputerPlayer extends AbstractPlayer {
         shootRandomly();
     }
 
+    // Do not place ships next to each other! otherwise, what is the whole point...
     void shootRandomly() {
         Random rand = new Random();
         boolean shootSuccessfully = false;
@@ -98,6 +99,11 @@ class ComputerPlayer extends AbstractPlayer {
                 int nextY = nextHit.getY();
                 if (nextY == firstY) { //Shooting horizontally
                     y = nextY;
+
+                    if (opponentBoard.getCell(nextX + 1, y).isHit() && opponentBoard.getCell(nextX - 1, y).isHit()) {
+                        nextHit = null;
+                    }
+
                     if (nextX > firstX) { //Shooting to the right
                         if (!opponentBoard.isOutOfBounds(nextX + 1, y) && !opponentBoard.getCell(nextX + 1, y).isHit()) {
                             x = nextX + 1;
@@ -114,6 +120,11 @@ class ComputerPlayer extends AbstractPlayer {
                 }
                 if (nextX == firstX) { //Shooting vertically
                     x = nextX;
+
+                    if (opponentBoard.getCell(x, nextY + 1).isHit() && opponentBoard.getCell(x, nextY - 1).isHit()) {
+                        nextHit = null;
+                    }
+
                     if (nextY > firstY) { //Shooting to the bottom
                         if (!opponentBoard.isOutOfBounds(x, nextY + 1) && !opponentBoard.getCell(x, nextY + 1).isHit()) {
                             y = nextY + 1;

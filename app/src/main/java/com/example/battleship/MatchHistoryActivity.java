@@ -30,13 +30,13 @@ public class MatchHistoryActivity extends AppCompatActivity {
         matchesListView.setAdapter(adapter);
 
         for (Pair<String, Integer> match : Player.matchesInfoList) {
-            addRowToList("VS AI",match.first, "CPU", Player.EMAIL);
+            addRowToList("VS AI", match.first, "CPU", Player.EMAIL);
         }
 
 
         adapter.notifyDataSetChanged();
 
-        // TODO: add an array to store the last 10 games with the according results. save history for each user.
+        // an array to store the last 10 games with the according results. save history for each user.
 
     }
 

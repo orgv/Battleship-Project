@@ -7,11 +7,6 @@ import android.view.View;
 import android.widget.Toast;
 
 
-/*
-View.OnClickListener - Interface definition for a callback to be invoked when a view is clicked.
-onClick(View v)
-Called when a view has been clicked.
- */
 public class CustomDialog extends Dialog implements View.OnClickListener {
 
     public Activity dmActivity;

@@ -13,14 +13,6 @@ import java.util.ArrayList;
 
 public class BoardView extends RelativeLayout {
 
-    //	/** Callback interface to listen for board touches. */
-//    public interface BoardTouchListener {
-//
-//        /**
-//         * Called when a cell of the board is touched.
-//         */
-//        void onTouch(Cell cell);
-//    }
     // The canvas to draw things on
     Canvas mCanvas;
     // The paint to draw board grid

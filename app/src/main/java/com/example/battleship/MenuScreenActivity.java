@@ -12,6 +12,8 @@ import android.widget.TextView;
 public class MenuScreenActivity extends AppCompatActivity {
     MusicSoundHandlerApp myApp;
 
+    public static boolean justFinishedGame = false; // indicates if came to this activity via the main menu button, at the end of the game
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,6 +86,17 @@ public class MenuScreenActivity extends AppCompatActivity {
             Intent intent = new Intent(MenuScreenActivity.this, PlaceShipsActivity.class);
             intent.putExtra("mode", mode);
             startActivity(intent);
+        }
+    }
+
+    // do not press the back button if came from a game!
+
+    @Override
+    public void onBackPressed() {
+        if (!justFinishedGame) {
+            super.onBackPressed();
+        } else {
+            // do nothing
         }
     }
 }

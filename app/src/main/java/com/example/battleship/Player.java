@@ -311,7 +311,7 @@ public class Player extends AbstractPlayer {
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
         if (currentUser != null) {
-            // TODO: replace with init method
+            // can be replaced with init method
             FirebaseFirestore db = FirebaseFirestore.getInstance();
 
             String currentUserEmail = currentUser.getEmail();

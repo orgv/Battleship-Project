@@ -8,7 +8,7 @@ import android.media.SoundPool;
 import android.os.Build;
 
 
-// dedicated custom application class for handling music and sound state
+// dedicated custom application class for handling music and sound states
 public class MusicSoundHandlerApp extends Application {
     private MediaManager mediaManager;
     private SoundPool soundPool;
